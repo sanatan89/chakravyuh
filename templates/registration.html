@@ -1,7 +1,38 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="form"><form action='.' method="POST">{% csrf_token %}
-{{form.as_p}}
-<input type="submit"/>
-</form><div>
+<div class="form">
+		<form action='.' method="POST">{% csrf_token %}
+		 <div class="container">
+				 <div class="col-md-2 reg-labels">
+				 	<p>Username:</p>
+				 	<p>Email:</p>
+				 	<p>First Name</p>
+				 	<p>Last Name:</p>
+				 	<p>Password:</p>
+				 	<p>Repassword:</p>
+				 	<p>Contact</p>
+				 </div>
+	     		 <div class="col-md-2">
+	     		 	<p>{{ form.username }}</p>
+	     		 	<p>{{ form.email }}</p>
+	     		 	<p>{{ form.firstName }}</p>
+	     		 	<p>{{ form.lastName }}</p>
+	     		 	<p>{{ form.password }}</p>
+	     		 	<p>{{ form.repassword}}</p>
+	     		 	<p>{{ form.contact }}</p>
+	     		 </div>
+		 </div>
+		</form>
+</div>
 {% endblock %}
+			
+		
+
+<!-- <p><span class="reg-label">Firstname:</span><span class="reg-text" >{{ form.username }}</span></p>
+			<p><span class="reg-label">Location:</span><span class="reg-text">{{ form.email }}</span></p>
+	     	<p><span class="reg-label">First Name:</span><span class="reg-text">{{ form.firstName }}</span></p>
+	     	<p><span class="reg-label">Last Name :</span><span class="reg-text">{{ form.lastName }}</span></p>
+	     	<p><span class="reg-label">Password :</span><span class="reg-text">{{ form.password }}</span></p>
+	     	<p><span class="reg-label">Repassword :</span><span class="reg-text">{{ form.repassword }}</span></p>
+	     	<p><span class="reg-label">Contact :</span class="reg-text">{{ form.contact }}</p>
+			<input type="submit" value="submit"/> -->

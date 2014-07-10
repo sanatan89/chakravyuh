@@ -1,0 +1,31 @@
+.navigation {
+	padding:5px 0px;
+}
+
+.navigation li a:focus{
+	background-color: none;
+}
+
+.cust-nav {
+	background-color: #3B240B;
+	color:black;
+}
+.bosdy{
+	background-image: url("/media/cover.jpg");
+	
+}
+
+.list-comp{
+	font-weight:bold;
+	margin-right: 10px;
+}
+
+.reg-labels p {
+	line-height: 27px !important;
+}
+
+.home {
+	background-image: url("/media/cover.jpg");
+    height: 100%;
+	background-repeat: no-repeat;
+}
