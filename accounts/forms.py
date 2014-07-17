@@ -12,7 +12,7 @@ class RegistrationForm(forms.Form):
     lastName = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput())
     repassword = forms.CharField(widget=forms.PasswordInput())
-    contact = forms.IntegerField()
+    contact = forms.CharField()
     
 class LoginForm(forms.Form):
     username = forms.CharField()

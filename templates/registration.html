@@ -4,13 +4,13 @@
 		<form action='.' method="POST">{% csrf_token %}
 		 <div class="container">
 				 <div class="col-md-2 reg-labels">
-				 	<p>Username:</p>
-				 	<p>Email:</p>
-				 	<p>First Name</p>
-				 	<p>Last Name:</p>
-				 	<p>Password:</p>
-				 	<p>Repassword:</p>
-				 	<p>Contact</p>
+				 	<p>{{ form.username.label }}</p>
+	     		 	<p>{{ form.email.label }}</p>
+	     		 	<p>{{ form.firstName.label }}</p>
+	     		 	<p>{{ form.lastName.label }}</p>
+	     		 	<p>{{ form.password.label }}</p>
+	     		 	<p>{{ form.repassword.label }}</p>
+	     		 	<p>{{ form.contact.label }}</p>
 				 </div>
 	     		 <div class="col-md-2">
 	     		 	<p>{{ form.username }}</p>
@@ -22,6 +22,8 @@
 	     		 	<p>{{ form.contact }}</p>
 	     		 </div>
 		 </div>
+
+		 <input type="submit" value="submit"/>
 		</form>
 </div>
 {% endblock %}

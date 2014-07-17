@@ -40,6 +40,8 @@ TEMPLATE_LOADERS = (
 ALLOWED_HOSTS = []
 
 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'media')
+print ("hello")
+print (MEDIA_ROOT)
 MEDIA_URL = '/media/'
 # Application definition
 
