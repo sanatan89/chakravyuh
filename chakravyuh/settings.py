@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'puzzles'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -106,3 +107,7 @@ root_logger.setLevel(logging.DEBUG)
 handler = SysLogHandler(facility=16)
 handler.setFormatter(logging.Formatter(LOG_FORMAT, DATE_FORMAT))
 root_logger.addHandler(handler)
+
+
+LOGIN_URL = '/accounts/login/'
+LOGOUT_URL = '/accounts/logout/'
