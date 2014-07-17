@@ -1,14 +1,10 @@
-<html>
-<head>
-<title>Home</title>
-<h1>Welcome To Chakravyuh</h1>
-Hello 
-{% if request.user.is_authenticated %}
-{{ request.user.username }},  You are now part of the greatest gameshow ChakraVyuh.
-{% else %}
-Guest, Please register below to part of Chakravyuh.
-{% endif %}
-</head>
-<body>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %} Home{% endblock %} 
+{% block content %}
+    
+      <div id="home">
+      </div>
+    
+{% endblock %}
+
+ 
