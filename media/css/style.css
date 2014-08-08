@@ -3,12 +3,16 @@
 	}
 
 .mainContainer{
-	margin-top: 130px;
+	margin-top: 110px;
 	margin-left: 20px;
 	background-image: url('/home/tarams/Desktop/cc.jpg'); 
 	background-repeat: no-repeat;
 	background-size: 100%;
     height:100%;
+}
+
+.mainContainer h1,h2,h3,h4,h5,h6{
+	text-transform: none;
 }
 .navbar-default {
 	
@@ -35,10 +39,10 @@ box-shadow: 5px 5px 13px;
 	}
 
 #home{
-	background-image: url('/static/cover.jpg'); 
+	/*background-image: url("/media/cake.png"); */
 	background-repeat: no-repeat;
 	background-size: 100%;
-    height:100%;
+    height:1000px;
 }
 
 .foots{
@@ -49,11 +53,23 @@ box-shadow: 5px 5px 13px;
 .footer-below{
 	padding: -29px;
 	width: 100%;
+	z-index: -1;
 
 }
 a:hover {
 	color:#DBA901 !important;
+
+
 }
+
+.answerBox{
+
+margin-top: 10px;
+}
+
+
+
+
 /*.foots{
 	margin-top: -150px;  negative value of footer height 
   height: 150px;
