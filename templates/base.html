@@ -61,7 +61,7 @@
                                     <a href="#page-top"></a>
                                 </li>
                                 <li class="page-scroll">
-                                    <a href="#about">Play</a>
+                                    <a href="{% url 'puzzles.views.puzzle' p_id slug %}">Play</a>
                                 </li>
                                 <li class="page-scroll">
                                     <a href="#contact">About</a>
@@ -88,7 +88,7 @@
           {% endblock %}
       </div>
 
-      <div class="footerContainer">
+      <!-- <div class="footerContainer">
             <nav class="navbar navbar-default text-center  navbar-fixed-bottom  ">
               <div class="footer-below">
                   <div class="row">
@@ -99,7 +99,7 @@
                   
               </div>
             </nav>
-      </div>  <!-- footer container ends -->
+      </div>  <!-- footer container ends --> 
 </div>    <!-- bodyContainer ends --> 
 
 

@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.http.response import HttpResponseRedirect
+from django.template.context import RequestContext
+from django.views.decorators.csrf import csrf_exempt
 from django.core.urlresolvers import reverse
 from django.contrib.auth import logout, login, authenticate
 from accounts.forms import RegistrationForm, LoginForm
 from accounts.models import UserProfile
 from django.contrib.auth.models import User
-from django.template.context import RequestContext
-from django.views.decorators.csrf import csrf_exempt
+
 
 # Create your views here.
 @csrf_exempt
@@ -48,12 +49,15 @@ def login_user(request):
                     return HttpResponseRedirect(reverse('home'))
                 else:
                     print("The password is valid, but the account has been disabled!")
+            else:
+                form=form
+                return render(request,'registration.html',locals())
         else:
             form=form
-            return render(request, 'registration.html',locals())
+            return render(request,'registration.html',locals())
     else:
         form = LoginForm()
-        return render(request, 'registration.html', locals())
+        return render(request,'registration.html', locals())
 
 def logout_user(request):
     logout(request)

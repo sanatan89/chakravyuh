@@ -3,7 +3,12 @@
 {% block content %}
     
       <div id="home">
+      	{% if request.user.is_staff %}
+         <h3> Welcome {{request.user.username}}</h3>
+         <h3><a href ="{% url 'puzzles.views.add_question' %}"> Add question </a></h3>
+      	{% endif %}
       </div>
+   
     
 {% endblock %}
 
