@@ -6,7 +6,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.template.defaultfilters import slugify
 from puzzles.forms import QuestionForm,AnswerForm
 from puzzles.models import 	Questions
-
+import logging
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 
@@ -39,7 +40,11 @@ def add_question(request):
 #@login_required
 def puzzle(request, p_id, slug):
     print "puzzle"
-    q=Questions.objects.get(id=p_id)
+    try:
+        q=Questions.objects.get(id=p_id, slug=slug)
+    except Exception as e:
+        logger.exception(str(e))
+        raise Exception(str(e))
     if request.method=="POST":
         print "inside post"
         form = AnswerForm(request.POST)
@@ -51,7 +56,7 @@ def puzzle(request, p_id, slug):
             if key == q.answer:
                 p_id=int(p_id)+1;
                 q=Questions.objects.get(id=p_id)
-                return HttpResponseRedirect(reverse('puzzles.views.puzzle', kwargs={'p_id':p_id ,'slug':q.slug}))
+                return HttpResponseRedirect(reverse('puzzles.views.puzzle', args={p_id ,q.slug}))
             else:
                 form = AnswerForm()
                 return render(request,'puzzles/level.html',locals())

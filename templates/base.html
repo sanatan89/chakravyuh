@@ -61,7 +61,11 @@
                                     <a href="#page-top"></a>
                                 </li>
                                 <li class="page-scroll">
-                                    <a href="{% url 'puzzles.views.puzzle' p_id slug %}">Play</a>
+                                    {% if p_id %}
+                                    	<a href="{% url 'puzzles.views.puzzle' p_id=p_id slug=slug %}">
+                                    {% else %}
+                                    	<a href="">Play</a>
+                                    {% endif %}
                                 </li>
                                 <li class="page-scroll">
                                     <a href="#contact">About</a>
