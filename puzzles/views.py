@@ -7,6 +7,7 @@ from django.template.defaultfilters import slugify
 from puzzles.forms import QuestionForm,AnswerForm
 from puzzles.models import 	Questions
 import logging
+from django.template.context import RequestContext
 logger = logging.getLogger(__name__)
 
 # Create your views here.
@@ -25,7 +26,7 @@ def add_question(request):
                     answer=form.cleaned_data['answer']
                     )
             question.save()
-            #print "redirecting"
+            print "redirecting"
             return render(request,'index.html',locals())
         else:
             #print "eles"
@@ -33,11 +34,11 @@ def add_question(request):
             return render(request, 'puzzles/add_question.html',locals())
     else:
         form = QuestionForm()
-        return render(request,'puzzles/add_question.html',locals())
-    pass
+        print "hello"
+        return render(request,'puzzles/add_question.html',locals(), context_instance=RequestContext(request))
 
 @csrf_exempt
-#@login_required
+@login_required
 def puzzle(request, p_id, slug):
     print "puzzle"
     try:
@@ -50,10 +51,10 @@ def puzzle(request, p_id, slug):
         form = AnswerForm(request.POST)
         if form.is_valid():
             print "valid"
-            key = form.cleaned_data['key']
-            print key
+            answer= form.cleaned_data['key']
+            print answer
             print q.answer
-            if key == q.answer:
+            if answer == q.answer:
                 p_id=int(p_id)+1;
                 q=Questions.objects.get(id=p_id)
                 return HttpResponseRedirect(reverse('puzzles.views.puzzle', args={p_id ,q.slug}))

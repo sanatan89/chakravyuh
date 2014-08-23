@@ -1,1 +1,24 @@
 {% extends 'base.html' %}
+
+{% block content %}
+<div class="form">
+		<form action="." method="POST" enctype="multipart/form-data">{% csrf_token %}
+		 <div class="container">
+				 <div class="col-md-2 reg-labels">
+				 	<p>{{ form.description.label }}</p>
+	     		 	<p>{{ form.level.label }}</p>
+	     		 	<p>{{ form.image.label }}</p>
+	     		 	<p>{{ form.answer.label }}</p>
+				 </div>
+	     		 <div class="col-md-2">
+	     		 	<p>{{ form.description }}</p>
+	     		 	<p>{{ form.level }}</p>
+	     		 	<p>{{ form.image }}</p>
+	     		 	<p>{{ form.answer }}</p>
+	     		 </div>
+		 </div>
+
+		 <input type="submit" value="submit"/>
+		</form>
+</div>
+{% endblock %}

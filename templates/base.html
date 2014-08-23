@@ -51,7 +51,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="#page-top">Chakravyuha</a>
+                      <a class="navbar-brand" href="{% url 'views.home' %}">Chakravyuha</a>
                     </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -64,7 +64,7 @@
                                     {% if p_id %}
                                     	<a href="{% url 'puzzles.views.puzzle' p_id=p_id slug=slug %}">
                                     {% else %}
-                                    	<a href="">Play</a>
+                                    	<a href="#">Play</a>
                                     {% endif %}
                                 </li>
                                 <li class="page-scroll">

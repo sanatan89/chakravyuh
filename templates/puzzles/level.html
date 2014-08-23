@@ -1,0 +1,20 @@
+
+{% block content %}
+<div class="form">
+	<form method="POST" action=".">{% csrf_token %}
+	<div class="container">
+		<div class="col-md-2 reg-labels">
+		<p>Description</p>
+		<p>Image</p>
+		<p>{{ form.answer.label }}</p>
+		</div>
+		<div class="col-md-2">
+		<p>{{ question.description }}</p>
+		<p><image src="{{ question.image.url }}"/></p>
+	    <p>{{ form.answer }}</p>
+	    </div>
+	</div>
+	<input type="submit" value="submit"/>
+	</form>
+</div>
+{% endblock %}

@@ -7,4 +7,4 @@ class QuestionForm(forms.Form):
     answer = forms.CharField()
 
 class AnswerForm(forms.Form):
-	key = forms.CharField(required=True)
+    answer = forms.CharField(required=True)
