@@ -6,10 +6,11 @@ logger = logging.getLogger(__name__)
 
 def home(request):
     try:
-        question = Questions.objects.filter(p_id=1)
-        p_id = 1
+        question = Questions.objects.all()[0]
+        p_id = question.id
         slug = question.slug
     except Exception as e:
+        print "no check"
         logger.exception(str(e))
     #print question.slug
     #print type(slug)
