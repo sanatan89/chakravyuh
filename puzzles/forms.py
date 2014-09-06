@@ -7,4 +7,4 @@ class QuestionForm(forms.Form):
     answer = forms.CharField()
 
 class AnswerForm(forms.Form):
-	key = forms.CharField(required=True,widget=forms.TextInput(attrs={'class' : 'key-text'}))
+	key = forms.CharField(required=True,widget=forms.TextInput(attrs={'class' : 'key-text','id':'answer-id'}))

@@ -39,7 +39,7 @@ def add_question(request):
 #@login_required
 def puzzle(request, p_id, slug):
     print "puzzle"
-    q=Questions.objects.get(id=p_id)
+    q=Questions.objects.get(id=p_id,slug=slug)
     if request.method=="POST":
         print "inside post"
         form = AnswerForm(request.POST)
@@ -49,16 +49,19 @@ def puzzle(request, p_id, slug):
             print key
             print q.answer
             if key == q.answer:
+                state ="answer"
                 p_id=int(p_id)+1;
                 q=Questions.objects.get(id=p_id)
                 return HttpResponseRedirect(reverse('puzzles.views.puzzle', kwargs={'p_id':p_id ,'slug':q.slug}))
             else:
+                state ="wrong"
                 form = AnswerForm()
                 return render(request,'puzzles/level.html',locals())
         else:
-            print "last block"
+            state="block"
             form = form
             return render(request,'puzzles/level.html',locals())
     else:
+        state="last block"
         form = AnswerForm()
         return render(request,'puzzles/level.html',locals())
