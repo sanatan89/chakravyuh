@@ -59,12 +59,14 @@ def puzzle(request, p_id, slug):
                 q=Questions.objects.get(id=p_id)
                 return HttpResponseRedirect(reverse('puzzles.views.puzzle', args={p_id ,q.slug}))
             else:
+                state ="wrong"
                 form = AnswerForm()
                 return render(request,'puzzles/level.html',locals())
         else:
-            print "last block"
+            state="block"
             form = form
             return render(request,'puzzles/level.html',locals())
     else:
+        state="last block"
         form = AnswerForm()
         return render(request,'puzzles/level.html',locals())
